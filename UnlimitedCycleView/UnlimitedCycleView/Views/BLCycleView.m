@@ -15,6 +15,7 @@ static NSString *cellID = @"cellID";
 @interface BLCycleView ()<UICollectionViewDataSource, UICollectionViewDelegate>
 @property(nonatomic, weak) UIPageControl *pageC;
 @property(nonatomic, weak) UICollectionView *cv;
+@property(nonatomic, strong) NSTimer *timer;
 @end
 
 @implementation BLCycleView
@@ -63,6 +64,7 @@ static NSString *cellID = @"cellID";
     NSTimer *timer = [NSTimer timerWithTimeInterval:2 target:self selector:@selector(playPicture) userInfo:nil repeats:YES];
     //以通用的模式把定时器添加到运行循环
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    self.timer = timer;
 }
 // 定时器方法    ->让collectionView进行滚动
 - (void)playPicture
@@ -123,6 +125,14 @@ static NSString *cellID = @"cellID";
         [self.cv scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:_imageList.count*kSeed *0.5 inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
     }
 }
+
+//当scrollview将要被拖拽的时候, 会调用这个方法
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    // 把定时器停掉
+    self.timer.fireDate = [NSDate distantFuture];
+}
+
 // 加载完界面就让其滚动到_imageList.count的item上
 - (void)layoutSubviews
 {
