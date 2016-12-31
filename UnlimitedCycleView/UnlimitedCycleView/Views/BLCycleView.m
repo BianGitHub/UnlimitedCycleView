@@ -55,7 +55,26 @@ static NSString *cellID = @"cellID";
         make.centerX.equalTo(self);
         make.bottom.equalTo(self).offset(10);
     }];
+    
+    // 创建定时器
+    // 不能把定时器以默认的形式添加到运行循环  -> 当界面有其他滚动的控件时会有BUG 停止滚动
+//    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(playPicture) userInfo:nil repeats:YES];
+    
+    NSTimer *timer = [NSTimer timerWithTimeInterval:2 target:self selector:@selector(playPicture) userInfo:nil repeats:YES];
+    //以通用的模式把定时器添加到运行循环
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
 }
+// 定时器方法    ->让collectionView进行滚动
+- (void)playPicture
+{
+    // 获取collectionView当前滚动的偏移量x
+    CGFloat offectX = self.cv.contentOffset.x;
+    offectX += self.cv.bounds.size.width;
+    // 把原来的偏移量加一个collectionView宽度   并设置给collectionView
+    // 需要动画
+    [self.cv setContentOffset:CGPointMake(offectX, 0) animated:YES];
+}
+
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
