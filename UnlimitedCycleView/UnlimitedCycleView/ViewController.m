@@ -22,6 +22,7 @@
     [super viewDidLoad];
     [self loadData];
     BLCycleView *cycleView = [[BLCycleView alloc]init];
+    // 再此传入一个图片数组即可
     cycleView.imageList = _imageList;
     [self.view addSubview: cycleView];
     
