@@ -10,6 +10,7 @@
 #import "BLCycleLayout.h"
 #import "Masonry.h"
 #import "BLCycleCell.h"
+#define kSeed 1000
 static NSString *cellID = @"cellID";
 @interface BLCycleView ()<UICollectionViewDataSource, UICollectionViewDelegate>
 @property(nonatomic, weak) UIPageControl *pageC;
@@ -58,7 +59,7 @@ static NSString *cellID = @"cellID";
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return _imageList.count * 2;
+    return _imageList.count * kSeed;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -91,7 +92,7 @@ static NSString *cellID = @"cellID";
         //判断
     if (indexP.item == itemCount - 1) {
         //让scrollview跳转到图片的个数 - 1个item
-        NSIndexPath *toIndexPath = [NSIndexPath indexPathForItem:_imageList.count - 1 inSection:0];
+        NSIndexPath *toIndexPath = [NSIndexPath indexPathForItem:_imageList.count * kSeed *0.5 - 1 inSection:0];
         //不能给动画
         [self.cv scrollToItemAtIndexPath:toIndexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
     }
@@ -99,14 +100,15 @@ static NSString *cellID = @"cellID";
     //如果滚动到第0个条目就跳转到    ->第一次滚动需要在layoutSubviews里面设置
     if(indexP.item == 0)
     {
-        [self.cv scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:_imageList.count inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+        //让cell滚动到中间cell位置
+        [self.cv scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:_imageList.count*kSeed *0.5 inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
     }
 }
 // 加载完界面就让其滚动到_imageList.count的item上
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    [self.cv scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:_imageList.count inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+    [self.cv scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:_imageList.count*kSeed *0.5 inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
 }
 
 //给pageC个数赋值
