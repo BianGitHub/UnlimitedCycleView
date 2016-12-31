@@ -96,7 +96,17 @@ static NSString *cellID = @"cellID";
         [self.cv scrollToItemAtIndexPath:toIndexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
     }
     
-    //如果滚动到第0个条目
+    //如果滚动到第0个条目就跳转到    ->第一次滚动需要在layoutSubviews里面设置
+    if(indexP.item == 0)
+    {
+        [self.cv scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:_imageList.count inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+    }
+}
+// 加载完界面就让其滚动到_imageList.count的item上
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    [self.cv scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:_imageList.count inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
 }
 
 //给pageC个数赋值
