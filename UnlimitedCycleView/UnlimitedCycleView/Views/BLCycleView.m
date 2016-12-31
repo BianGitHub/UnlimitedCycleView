@@ -132,6 +132,11 @@ static NSString *cellID = @"cellID";
     // 把定时器停掉
     self.timer.fireDate = [NSDate distantFuture];
 }
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    //从现在开始隔2秒以后开火(自动滚动)
+    self.timer.fireDate = [NSDate dateWithTimeIntervalSinceNow:2];
+}
 
 // 加载完界面就让其滚动到_imageList.count的item上
 - (void)layoutSubviews
