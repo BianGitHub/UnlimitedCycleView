@@ -7,7 +7,8 @@
 //
 
 #import "ViewController.h"
-
+#import "BLCycleView.h"
+#import "Masonry.h"
 @interface ViewController ()
 
 @end
@@ -16,14 +17,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    BLCycleView *cycleView = [[BLCycleView alloc]init];
+    [self.view addSubview: cycleView];
+    
+    [cycleView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.equalTo(self.view);
+        make.height.mas_equalTo(@100);
+    }];
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 @end
