@@ -69,6 +69,7 @@ static NSString *cellID = @"cellID";
 // 定时器方法    ->让collectionView进行滚动
 - (void)playPicture
 {
+    NSLog(@"xxxxxxx");
     // 获取collectionView当前滚动的偏移量x
     CGFloat offectX = self.cv.contentOffset.x;
     offectX += self.cv.bounds.size.width;
@@ -151,6 +152,13 @@ static NSString *cellID = @"cellID";
     _imageList = imageList;
     
     self.pageC.numberOfPages = _imageList.count;
+}
+
+//当无限轮播从父控件上移除的时候，把定时器给停掉   ->在delloc方法中移除不会停止
+- (void)removeFromSuperview{
+    [super removeFromSuperview];
+    //停掉定时器
+    [self.timer invalidate];
 }
 
 @end
