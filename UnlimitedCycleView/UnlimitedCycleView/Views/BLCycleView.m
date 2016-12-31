@@ -11,7 +11,7 @@
 #import "Masonry.h"
 #import "BLCycleCell.h"
 static NSString *cellID = @"cellID";
-@interface BLCycleView ()<UICollectionViewDataSource>
+@interface BLCycleView ()<UICollectionViewDataSource, UICollectionViewDelegate>
 @property(nonatomic, weak) UIPageControl *pageC;
 @end
 
@@ -31,6 +31,7 @@ static NSString *cellID = @"cellID";
     BLCycleLayout *layout = [[BLCycleLayout alloc]init];
     UICollectionView *cv = [[UICollectionView alloc]initWithFrame:self.bounds collectionViewLayout:layout];
     cv.dataSource = self;
+    cv.delegate = self;
     cv.pagingEnabled = YES;
     cv.showsHorizontalScrollIndicator = NO;
     [self addSubview:cv];
@@ -64,6 +65,15 @@ static NSString *cellID = @"cellID";
 //    cell.backgroundColor = [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1];
     cell.picture = _imageList[indexPath.item];
     return cell;
+}
+#pragma mark - UICollectionViewDelegate
+//collectionView滚动时pageC跟着滚动
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat offsetX = scrollView.contentOffset.x;
+    CGFloat page = offsetX / scrollView.bounds.size.width;
+    
+    self.pageC.currentPage = page + 0.5;
 }
 //给pageC个数赋值
 - (void)setImageList:(NSArray *)imageList
