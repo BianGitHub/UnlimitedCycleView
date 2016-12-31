@@ -30,6 +30,7 @@
 		119C994F1E17943C00BAF27A /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 119C99411E17943C00BAF27A /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		119C99501E17943C00BAF27A /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 119C99431E17943C00BAF27A /* View+MASAdditions.m */; };
 		119C99511E17943C00BAF27A /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 119C99461E17943C00BAF27A /* ViewController+MASAdditions.m */; };
+		119C99541E17966100BAF27A /* BLCycleLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 119C99531E17966100BAF27A /* BLCycleLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,8 @@
 		119C99441E17943C00BAF27A /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		119C99451E17943C00BAF27A /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		119C99461E17943C00BAF27A /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+		119C99521E17966100BAF27A /* BLCycleLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCycleLayout.h; sourceTree = "<group>"; };
+		119C99531E17966100BAF27A /* BLCycleLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCycleLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +158,8 @@
 			children = (
 				119C99071E178AE400BAF27A /* AppDelegate.h */,
 				119C99081E178AE400BAF27A /* AppDelegate.m */,
+				119C99521E17966100BAF27A /* BLCycleLayout.h */,
+				119C99531E17966100BAF27A /* BLCycleLayout.m */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -289,6 +294,7 @@
 				119C994D1E17943C00BAF27A /* MASViewConstraint.m in Sources */,
 				119C994C1E17943C00BAF27A /* MASViewAttribute.m in Sources */,
 				119C99501E17943C00BAF27A /* View+MASAdditions.m in Sources */,
+				119C99541E17966100BAF27A /* BLCycleLayout.m in Sources */,
 				119C99091E178AE400BAF27A /* AppDelegate.m in Sources */,
 				119C99061E178AE400BAF27A /* main.m in Sources */,
 				119C99481E17943C00BAF27A /* MASCompositeConstraint.m in Sources */,
