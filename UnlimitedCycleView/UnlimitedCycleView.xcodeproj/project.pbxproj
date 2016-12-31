@@ -31,6 +31,7 @@
 		119C99501E17943C00BAF27A /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 119C99431E17943C00BAF27A /* View+MASAdditions.m */; };
 		119C99511E17943C00BAF27A /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 119C99461E17943C00BAF27A /* ViewController+MASAdditions.m */; };
 		119C99541E17966100BAF27A /* BLCycleLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 119C99531E17966100BAF27A /* BLCycleLayout.m */; };
+		119C99571E17A19C00BAF27A /* BLCycleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 119C99561E17A19C00BAF27A /* BLCycleCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,8 @@
 		119C99461E17943C00BAF27A /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		119C99521E17966100BAF27A /* BLCycleLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCycleLayout.h; sourceTree = "<group>"; };
 		119C99531E17966100BAF27A /* BLCycleLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCycleLayout.m; sourceTree = "<group>"; };
+		119C99551E17A19C00BAF27A /* BLCycleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCycleCell.h; sourceTree = "<group>"; };
+		119C99561E17A19C00BAF27A /* BLCycleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCycleCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +173,8 @@
 				119C990D1E178AE400BAF27A /* Main.storyboard */,
 				119C99291E1793F800BAF27A /* BLCycleView.h */,
 				119C992A1E1793F800BAF27A /* BLCycleView.m */,
+				119C99551E17A19C00BAF27A /* BLCycleCell.h */,
+				119C99561E17A19C00BAF27A /* BLCycleCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -290,6 +295,7 @@
 				119C99491E17943C00BAF27A /* MASConstraint.m in Sources */,
 				119C99511E17943C00BAF27A /* ViewController+MASAdditions.m in Sources */,
 				119C994B1E17943C00BAF27A /* MASLayoutConstraint.m in Sources */,
+				119C99571E17A19C00BAF27A /* BLCycleCell.m in Sources */,
 				119C994E1E17943C00BAF27A /* NSArray+MASAdditions.m in Sources */,
 				119C994D1E17943C00BAF27A /* MASViewConstraint.m in Sources */,
 				119C994C1E17943C00BAF27A /* MASViewAttribute.m in Sources */,

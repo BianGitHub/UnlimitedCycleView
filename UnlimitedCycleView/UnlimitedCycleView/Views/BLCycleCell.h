@@ -1,5 +1,5 @@
 //
-//  BLCycleView.h
+//  BLCycleCell.h
 //  UnlimitedCycleView
 //
 //  Created by 边雷 on 16/12/31.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BLCycleView : UIView
-@property(nonatomic, strong) NSArray *imageList;
+@interface BLCycleCell : UICollectionViewCell
+@property(nonatomic, strong) UIImage *picture;
 @end

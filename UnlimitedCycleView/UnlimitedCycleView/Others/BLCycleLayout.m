@@ -10,4 +10,15 @@
 
 @implementation BLCycleLayout
 
+- (void)prepareLayout
+{
+    [super prepareLayout];
+    //设置item大小
+    self.itemSize = self.collectionView.bounds.size;
+    //设置水平滚动
+    self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    //设置行间距为0
+    self.minimumLineSpacing = 0;
+}
+
 @end
