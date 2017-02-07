@@ -42,6 +42,10 @@ static NSString *cellID = @"cellID";
     
     [cv registerClass:[BLCycleCell class] forCellWithReuseIdentifier:cellID];
     
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [self.cv scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:_imageList.count*kSeed *0.5 inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+//    });
+    
     UIPageControl *pageC = [[UIPageControl alloc]init];
     pageC.pageIndicatorTintColor = [UIColor grayColor];
     pageC.currentPageIndicatorTintColor = [UIColor redColor];
@@ -140,6 +144,7 @@ static NSString *cellID = @"cellID";
 }
 
 // 加载完界面就让其滚动到_imageList.count的item上
+// 也可以利用 '主队列异步' 保证数据源方法执行完毕之后再滚动到item上
 - (void)layoutSubviews
 {
     [super layoutSubviews];
